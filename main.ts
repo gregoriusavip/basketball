@@ -11,7 +11,7 @@ start = input.runningTime()
             break;
         }
         play_basketball()
-        basic.pause(20)
+        basic.pause(100)
     }
 }
 input.onButtonPressed(Button.A, function () {
@@ -32,8 +32,8 @@ function play_basketball () {
 let distance = 0
 let next_ready = 0
 let now = 0
-let start = 0
 let total_score = 0
+let start = 0
 let display: PlanetX_Display.TM1637LEDs = null
 let COOLDOWN_MS = 0
 let THRESHOLD_CM = 0
@@ -42,4 +42,6 @@ let SHOT_CLOCK_SECONDS = 24
 THRESHOLD_CM = 8
 COOLDOWN_MS = 800
 display = PlanetX_Display.tm1637Create(PlanetX_Display.DigitalRJPin.J1)
-basic.showNumber(total_score)
+basic.forever(function () {
+    basic.showNumber(total_score)
+})
